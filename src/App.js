@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
 function App() {
+  const jobs = [
+    { id: 1, position: 'Frontend Developer', company: 'Google', status: 'Applied' },
+    { id: 2, position: 'Backend Developer', company: 'Amazon', status: 'Interview' },
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ padding: '20px' }}>
+      <h1>Job Tracker</h1>
+      <ul>
+        {jobs.map((job) => (
+          <li key={job.id}>
+            <strong>{job.position}</strong> at {job.company} - <em>{job.status}</em>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
